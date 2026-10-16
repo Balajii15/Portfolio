@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>F6Creation — Motion, Design &amp; Web</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #faf9f6;
+    --surface: #ffffff;
+    --ink: #17171b;
+    --muted: #6e6e76;
+    --faint: #a8a7ad;
+    --line: #e6e4de;
+    --accent: #ff6a1f;
+    --grad: linear-gradient(100deg, #ffd400 0%, #ff8a00 52%, #ff2a2a 100%);
+    --radius: 6px;
+    --serif: 'Fraunces', serif;
+    --sans: 'Inter', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  }
+
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a{ color: inherit; }
+  img,svg{ display:block; max-width:100%; }
+
+  h1,h2,h3{
+    font-family: var(--serif);
+    font-weight: 500;
+    margin: 0;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+
+  .mono{ font-family: var(--mono); }
+
+  .wrap{
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ---------- Nav ---------- */
+  header{
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(250,249,246,0.9);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-row{
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 32px;
+    height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .brand{
+    display:flex; align-items:center; gap:11px;
+    text-decoration: none;
+  }
+  .brand-mark{
+    width: 30px; height: 30px;
+    border-radius: 7px;
+    background: var(--grad);
+    flex-shrink: 0;
+    display:flex; align-items:center; justify-content:center;
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 12px;
+    color: #201400;
+  }
+  .brand-word{
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 500;
+  }
+  nav.links{
+    display:flex; align-items:center; gap: 34px;
+  }
+  nav.links a{
+    text-decoration:none;
+    color: var(--muted);
+    font-size: 14.5px;
+    transition: color 0.15s ease;
+  }
+  nav.links a:hover{ color: var(--ink); }
+  .nav-cta{
+    display:flex; align-items:center; gap: 20px;
+  }
+  .menu-toggle{
+    display:none;
+    background:none; border:none;
+    cursor:pointer;
+    padding: 6px;
+  }
+  .menu-toggle span{
+    display:block;
+    width: 20px; height: 1.5px;
+    background: var(--ink);
+    margin: 5px 0;
+  }
+
+  .btn{
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 14.5px;
+    padding: 12px 22px;
+    border-radius: var(--radius);
+    text-decoration:none;
+    display:inline-block;
+    border: 1px solid transparent;
+    cursor:pointer;
+    transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+  .btn-solid{
+    background: var(--ink);
+    color: var(--surface);
+  }
+  .btn-solid:hover{ background: var(--accent); }
+  .btn-outline{
+    border-color: var(--line);
+    color: var(--ink);
+    background: transparent;
+  }
+  .btn-outline:hover{ border-color: var(--ink); }
+  .btn-sm{ padding: 10px 18px; font-size: 13.5px; }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding: 108px 0 90px;
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap: 9px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 24px;
+    padding: 6px 4px 6px 4px;
+  }
+  .eyebrow .dot{
+    width: 6px; height:6px; border-radius:50%;
+    background: var(--grad);
+  }
+  h1.hero-title{
+    font-size: clamp(2.3rem, 4.2vw, 3.6rem);
+    line-height: 1.08;
+  }
+  .hero-sub{
+    margin: 26px 0 36px;
+    max-width: 46ch;
+    font-size: 17px;
+    color: var(--muted);
+  }
+  .hero-ctas{ display:flex; gap: 14px; flex-wrap: wrap; align-items:center; }
+  .hero-ctas .note{ font-size: 13px; color: var(--faint); }
+
+  .hero-visual{
+    aspect-ratio: 4/5;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    background: var(--surface);
+  }
+  .hero-visual svg{ width: 100%; height: 100%; }
+
+  .clients-row{
+    padding: 30px 0 34px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    display:flex;
+    align-items:center;
+    gap: 36px;
+    flex-wrap: wrap;
+  }
+  .clients-row span.label{
+    font-size: 12.5px;
+    color: var(--faint);
+    white-space: nowrap;
+  }
+  .clients-list{
+    display:flex; gap: 32px; flex-wrap: wrap;
+  }
+  .clients-list span{
+    font-family: var(--serif);
+    font-size: 16px;
+    color: var(--muted);
+  }
+
+  section{ padding: 96px 0; }
+  section.tight{ padding-top: 0; }
+
+  .section-head{
+    display:flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 52px;
+    flex-wrap: wrap;
+  }
+  .section-tag{
+    font-size: 13px;
+    color: var(--accent);
+    margin-bottom: 14px;
+    display:block;
+  }
+  .section-head h2{
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+  }
+  .section-note{
+    color: var(--muted);
+    font-size: 15px;
+    max-width: 34ch;
+  }
+
+  /* ---------- Services ---------- */
+  .services-grid{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .service-card{
+    background: var(--surface);
+    padding: 40px;
+  }
+  .service-num{
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--faint);
+    margin-bottom: 22px;
+    display:block;
+  }
+  .service-card h3{
+    font-size: 21px;
+    margin-bottom: 12px;
+  }
+  .service-card p.desc{
+    color: var(--muted);
+    font-size: 14.5px;
+    margin: 0 0 20px;
+    max-width: 40ch;
+  }
+  .service-list{
+    list-style:none;
+    margin:0; padding:0;
+    display:flex; flex-direction:column; gap: 9px;
+  }
+  .service-list li{
+    font-size: 13.5px;
+    color: var(--ink);
+    display:flex; align-items:baseline; gap: 10px;
+  }
+  .service-list li::before{
+    content:'';
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink:0;
+    transform: translateY(-3px);
+  }
+
+  /* ---------- Work grid ---------- */
+  .work-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .work-item{ text-decoration:none; }
+  .work-art{
+    aspect-ratio: 4/3;
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+    overflow: hidden;
+    background: var(--surface);
+    transition: border-color 0.15s ease;
+  }
+  .work-item:hover .work-art{ border-color: var(--ink); }
+  .work-art svg{ width:100%; height:100%; }
+  .work-meta{
+    display:flex;
+    justify-content: space-between;
+    align-items:baseline;
+    margin-top: 16px;
+  }
+  .work-meta h3{ font-size: 16px; font-weight: 500; }
+  .work-meta span{
+    font-size: 12px;
+    color: var(--faint);
+  }
+  .work-cat{
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 3px;
+  }
+
+  /* ---------- Process ---------- */
+  .process-list{
+    display:flex;
+    flex-direction: column;
+  }
+  .process-item{
+    display:grid;
+    grid-template-columns: 90px 1fr;
+    gap: 32px;
+    padding: 32px 0;
+    border-top: 1px solid var(--line);
+    align-items: baseline;
+  }
+  .process-list .process-item:last-child{ border-bottom: 1px solid var(--line); }
+  .process-num{
+    font-family: var(--serif);
+    font-size: 24px;
+    color: var(--faint);
+  }
+  .process-item h3{ font-size: 18px; margin-bottom: 8px; }
+  .process-item p{ font-size: 14.5px; color: var(--muted); margin:0; max-width: 56ch; }
+
+  /* ---------- About ---------- */
+  .about{
+    display:grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 64px;
+    align-items: start;
+  }
+  .about p{
+    font-size: 16.5px;
+    color: #3c3c40;
+    max-width: 52ch;
+  }
+  .about p + p{ margin-top: 18px; }
+  .stat-list{
+    display:flex;
+    flex-direction:column;
+    gap: 26px;
+  }
+  .stat{
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+  }
+  .stat b{
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 500;
+    display:block;
+  }
+  .stat span{
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  /* ---------- Contact ---------- */
+  .contact-grid{
+    display:grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 64px;
+  }
+  .contact-info h2{ font-size: clamp(1.7rem, 3vw, 2.3rem); margin-bottom: 18px; }
+  .contact-info p{ color: var(--muted); font-size: 15px; max-width: 38ch; margin-bottom: 30px; }
+  .contact-detail{
+    display:flex; flex-direction:column; gap: 6px;
+    margin-bottom: 22px;
+  }
+  .contact-detail span.label{ font-size: 12.5px; color: var(--faint); }
+  .contact-detail span.value{ font-size: 15px; }
+
+  form{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .field{ display:flex; flex-direction:column; gap:8px; }
+  .field.full{ grid-column: 1 / -1; }
+  label{
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+  input, select, textarea{
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 14.5px;
+    padding: 13px 15px;
+    outline: none;
+    transition: border-color 0.15s ease;
+  }
+  input:focus, select:focus, textarea:focus{
+    border-color: var(--ink);
+  }
+  textarea{ resize: vertical; min-height: 100px; }
+  .field.full.submit-row{
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    margin-top: 4px;
+  }
+  .submit-note{
+    font-size: 12.5px;
+    color: var(--faint);
+  }
+
+  /* ---------- Footer ---------- */
+  footer{
+    border-top: 1px solid var(--line);
+    padding: 56px 0 40px;
+  }
+  .footer-top{
+    display:flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding-bottom: 40px;
+  }
+  .footer-brand p{
+    color: var(--muted);
+    font-size: 14px;
+    max-width: 30ch;
+    margin-top: 14px;
+  }
+  .footer-cols{
+    display:flex; gap: 64px;
+    flex-wrap: wrap;
+  }
+  .footer-col h4{
+    font-size: 12.5px;
+    color: var(--faint);
+    margin: 0 0 14px;
+    font-weight: 500;
+  }
+  .footer-col ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap: 10px; }
+  .footer-col a{
+    text-decoration:none;
+    color: var(--muted);
+    font-size: 14px;
+    transition: color 0.15s ease;
+  }
+  .footer-col a:hover{ color: var(--ink); }
+  .footer-bottom{
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-top: 28px;
+    border-top: 1px solid var(--line);
+  }
+  .footer-copy{
+    font-size: 13px;
+    color: var(--faint);
+  }
+
+  a:focus-visible, button:focus-visible, .btn:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible{
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  @media (max-width: 900px){
+    .hero{ grid-template-columns: 1fr; }
+    .hero-visual{ order: -1; aspect-ratio: 16/9; }
+    .services-grid{ grid-template-columns: 1fr; }
+    .work-grid{ grid-template-columns: 1fr 1fr; }
+    .about{ grid-template-columns: 1fr; }
+    .contact-grid{ grid-template-columns: 1fr; }
+    nav.links{ display:none; }
+  }
+  @media (max-width: 560px){
+    .nav-row{ height: 68px; }
+    .work-grid{ grid-template-columns: 1fr; }
+    .process-item{ grid-template-columns: 1fr; gap: 8px; }
+    form{ grid-template-columns: 1fr; }
+    .field.full.submit-row{ flex-direction: column; align-items:flex-start; gap:14px; }
+    .footer-top{ flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-row">
+    <a href="#top" class="brand">
+      <span class="brand-mark">f6</span>
+      <span class="brand-word">F6Creation</span>
+    </a>
+    <nav class="links">
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#process">Process</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-solid btn-sm">Start a project</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap" id="top">
+  <section class="hero">
+    <div>
+      <div class="eyebrow"><span class="dot"></span>Freelance studio — motion, design &amp; web</div>
+      <h1 class="hero-title">Considered design, made to be used.</h1>
+      <p class="hero-sub">F6Creation is a one-person studio working across motion graphics, graphic design, video editing, and website design and development — so every piece of a project is handled with the same care, by the same hands.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-solid">Start a project</a>
+        <a href="#work" class="btn btn-outline">View selected work</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <svg viewBox="0 0 480 560" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="heroGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#ffd400"/>
+            <stop offset="55%" stop-color="#ff8a00"/>
+            <stop offset="100%" stop-color="#ff2a2a"/>
+          </linearGradient>
+        </defs>
+        <rect width="480" height="560" fill="#ffffff"/>
+        <circle cx="330" cy="180" r="140" fill="url(#heroGrad)" opacity="0.94"/>
+        <rect x="60" y="330" width="220" height="150" fill="none" stroke="#17171b" stroke-width="1.4"/>
+        <line x1="60" y1="380" x2="280" y2="380" stroke="#17171b" stroke-width="1"/>
+        <line x1="60" y1="430" x2="230" y2="430" stroke="#17171b" stroke-width="1"/>
+        <circle cx="90" cy="90" r="3" fill="#17171b"/>
+      </svg>
+    </div>
+  </section>
+
+  <div class="clients-row">
+    <span class="label">Recently worked with</span>
+    <div class="clients-list">
+      <span>Northline</span>
+      <span>Harborview</span>
+      <span>Ferro Goods</span>
+      <span>Field Notes</span>
+      <span>Kettle &amp; Co</span>
+    </div>
+  </div>
+
+  <section id="services">
+    <div class="section-head">
+      <div>
+        <span class="section-tag">What I do</span>
+        <h2>Four disciplines, one studio.</h2>
+      </div>
+      <p class="section-note">Everything below is handled directly — no subcontracting, no handoffs between teams.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-num mono">01</span>
+        <h3>Motion Graphics</h3>
+        <p class="desc">Animation that carries a brand's voice into movement, built to hold attention without overdoing it.</p>
+        <ul class="service-list">
+          <li>Kinetic typography &amp; titles</li>
+          <li>Explainer &amp; product animation</li>
+          <li>Logo &amp; brand stings</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <span class="service-num mono">02</span>
+        <h3>Graphic Design</h3>
+        <p class="desc">Identity and visual systems designed to work as hard on a business card as on a billboard.</p>
+        <ul class="service-list">
+          <li>Identity &amp; brand systems</li>
+          <li>Social &amp; campaign assets</li>
+          <li>Print &amp; packaging</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <span class="service-num mono">03</span>
+        <h3>Video Editing</h3>
+        <p class="desc">Structuring raw footage into something worth watching — paced, graded, and mixed.</p>
+        <ul class="service-list">
+          <li>Narrative &amp; documentary cuts</li>
+          <li>Colour &amp; sound polish</li>
+          <li>Short-form &amp; social cuts</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <span class="service-num mono">04</span>
+        <h3>Website Design &amp; Frontend</h3>
+        <p class="desc">Interfaces designed to be built, then built properly — fast, responsive, and accessible.</p>
+        <ul class="service-list">
+          <li>Website &amp; product design</li>
+          <li>Frontend development</li>
+          <li>Landing pages &amp; portfolios</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" class="tight">
+    <div class="section-head">
+      <div>
+        <span class="section-tag">Selected work</span>
+        <h2>A few recent projects.</h2>
+      </div>
+      <p class="section-note">A sample spanning all four disciplines — swap in real stills and exports here.</p>
+    </div>
+
+    <div class="work-grid">
+      <a class="work-item" href="#">
+        <div class="work-art">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="300" fill="#ffffff"/>
+            <circle cx="150" cy="130" r="86" fill="none" stroke="#17171b" stroke-width="1.2"/>
+            <circle cx="150" cy="130" r="44" fill="#ff8a00" opacity="0.85"/>
+          </svg>
+        </div>
+        <div class="work-meta"><h3>Northline — brand launch film</h3><span>2025</span></div>
+        <div class="work-cat">Motion graphics · Video editing</div>
+      </a>
+
+      <a class="work-item" href="#">
+        <div class="work-art">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="300" fill="#ffffff"/>
+            <rect x="80" y="70" width="120" height="150" fill="none" stroke="#17171b" stroke-width="1.2"/>
+            <rect x="210" y="100" width="130" height="90" fill="#17171b" opacity="0.06"/>
+            <rect x="210" y="100" width="130" height="90" fill="none" stroke="#17171b" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="work-meta"><h3>Harborview — portfolio site</h3><span>2025</span></div>
+        <div class="work-cat">Website design · Frontend</div>
+      </a>
+
+      <a class="work-item" href="#">
+        <div class="work-art">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="300" fill="#ffffff"/>
+            <polygon points="120,220 180,80 240,220" fill="none" stroke="#17171b" stroke-width="1.2"/>
+            <polygon points="200,220 260,110 320,220" fill="#ffd400" opacity="0.9"/>
+          </svg>
+        </div>
+        <div class="work-meta"><h3>Ferro Goods — identity system</h3><span>2024</span></div>
+        <div class="work-cat">Graphic design</div>
+      </a>
+
+      <a class="work-item" href="#">
+        <div class="work-art">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="300" fill="#ffffff"/>
+            <rect x="70" y="80" width="260" height="14" fill="#17171b" opacity="0.08"/>
+            <rect x="70" y="110" width="170" height="14" fill="#17171b" opacity="0.08"/>
+            <rect x="70" y="140" width="210" height="14" fill="#17171b" opacity="0.08"/>
+            <circle cx="270" cy="210" r="30" fill="none" stroke="#ff2a2a" stroke-width="1.4"/>
+            <polygon points="262,198 262,222 282,210" fill="#ff2a2a"/>
+          </svg>
+        </div>
+        <div class="work-meta"><h3>Field Notes — explainer series</h3><span>2024</span></div>
+        <div class="work-cat">Motion graphics</div>
+      </a>
+
+      <a class="work-item" href="#">
+        <div class="work-art">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="300" fill="#ffffff"/>
+            <rect x="70" y="70" width="110" height="70" fill="none" stroke="#17171b" stroke-width="1.2"/>
+            <rect x="200" y="70" width="110" height="70" fill="none" stroke="#17171b" stroke-width="1.2"/>
+            <rect x="70" y="160" width="240" height="60" fill="#ff8a00" opacity="0.14"/>
+          </svg>
+        </div>
+        <div class="work-meta"><h3>Kettle &amp; Co — storefront rebuild</h3><span>2024</span></div>
+        <div class="work-cat">Website design · Frontend</div>
+      </a>
+
+      <a class="work-item" href="#">
+        <div class="work-art">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="300" fill="#ffffff"/>
+            <circle cx="140" cy="150" r="70" fill="none" stroke="#17171b" stroke-width="1.2"/>
+            <circle cx="240" cy="150" r="70" fill="#ff2a2a" opacity="0.14"/>
+            <circle cx="240" cy="150" r="70" fill="none" stroke="#17171b" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="work-meta"><h3>Verdant — packaging &amp; print</h3><span>2024</span></div>
+        <div class="work-cat">Graphic design</div>
+      </a>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="section-head">
+      <div>
+        <span class="section-tag">How it works</span>
+        <h2>Four stages, every project.</h2>
+      </div>
+      <p class="section-note">The same shape whether it's a 30-second sting or a full site build.</p>
+    </div>
+
+    <div class="process-list">
+      <div class="process-item">
+        <span class="process-num">01</span>
+        <div>
+          <h3>Brief</h3>
+          <p>We talk through the goal, audience and constraints, and agree on scope, timeline and cost before anything starts.</p>
+        </div>
+      </div>
+      <div class="process-item">
+        <span class="process-num">02</span>
+        <div>
+          <h3>Concept</h3>
+          <p>Rough directions — sketches, moodboards or a wireframe — so we agree on the shape before the detail work begins.</p>
+        </div>
+      </div>
+      <div class="process-item">
+        <span class="process-num">03</span>
+        <div>
+          <h3>Craft</h3>
+          <p>The real build: animation, design, edit or code, with a couple of checkpoints so nothing drifts off-brief.</p>
+        </div>
+      </div>
+      <div class="process-item">
+        <span class="process-num">04</span>
+        <div>
+          <h3>Ship</h3>
+          <p>Final files, exports or a deployed site, plus source handoff — so it's yours to keep and reuse.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="about">
+      <div>
+        <span class="section-tag">About</span>
+        <h2 style="margin-bottom: 22px;">One person, the whole project.</h2>
+        <p>Most studios split motion, design and development across different people and different handoffs. I do the animating, the designing and the building myself, which means fewer briefings lost in translation and a finished piece that looks like one idea, not three.</p>
+        <p>I work with founders, small teams and agencies who need something specific made well — a launch film, a brand refresh, a site that loads fast and looks like it was designed on purpose. Projects run from a single day to a few weeks, and I'm upfront about what's realistic in the time you've got.</p>
+      </div>
+      <div class="stat-list">
+        <div class="stat"><b>60+</b><span>Projects delivered across motion, design and web</span></div>
+        <div class="stat"><b>4</b><span>Disciplines handled in-house, no subcontracting</span></div>
+        <div class="stat"><b>1–3 wk</b><span>Typical turnaround for a standalone piece</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <span class="section-tag">Get in touch</span>
+        <h2>Tell me what you're making.</h2>
+        <p>A few lines about the project is enough to start — I'll follow up with questions and a rough quote within a couple of days.</p>
+        <div class="contact-detail">
+          <span class="label">Email</span>
+          <span class="value">hello@f6creation.com</span>
+        </div>
+        <div class="contact-detail">
+          <span class="label">Based in</span>
+          <span class="value">Available for remote work worldwide</span>
+        </div>
+      </div>
+
+      <form onsubmit="return false;">
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" type="text" placeholder="Your name" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" type="email" placeholder="you@company.com" required>
+        </div>
+        <div class="field">
+          <label for="service">Project type</label>
+          <select id="service">
+            <option>Motion graphics</option>
+            <option>Graphic design</option>
+            <option>Video editing</option>
+            <option>Website design</option>
+            <option>Frontend development</option>
+            <option>Multiple / not sure yet</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="budget">Budget range</label>
+          <select id="budget">
+            <option>Under $500</option>
+            <option>$500 – $1,500</option>
+            <option>$1,500 – $5,000</option>
+            <option>$5,000+</option>
+          </select>
+        </div>
+        <div class="field full">
+          <label for="message">Project details</label>
+          <textarea id="message" placeholder="What are you making, and what's the timeline?"></textarea>
+        </div>
+        <div class="field full submit-row">
+          <button type="submit" class="btn btn-solid">Send brief</button>
+          <span class="submit-note">Usually replies within 1–2 business days.</span>
+        </div>
+      </form>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#top" class="brand">
+          <span class="brand-mark">f6</span>
+          <span class="brand-word">F6Creation</span>
+        </a>
+        <p>A one-person studio for motion graphics, graphic design, video editing and websites.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Studio</h4>
+          <ul>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#about">About</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Behance</a></li>
+            <li><a href="#">Vimeo</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 F6Creation. All rights reserved.</span>
+      <span class="footer-copy">Designed &amp; built by F6Creation</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

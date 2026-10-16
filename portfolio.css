@@ -1,0 +1,411 @@
+body{
+    background-color: #030D1BFF;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+head1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border-bottom: 0.2px solid grey;
+    padding: 10px;
+}
+
+.name{
+    padding-left: 50px;
+    font-size: 20px;
+    display: inline-block;
+    color: white;
+}
+.page1{
+    height: 850px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-bottom: 1px solid grey;
+}
+.options{
+    padding-top: 30px;
+    color: grey;
+    width: 800px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    padding-right:40px;
+}
+.landing-page{
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: white;
+    font-size: 70px;
+    text-align: center;
+    font-weight: 750;
+    height:700px;
+    align-content: center;
+}
+.intro{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 100;
+    font-size: 20px;
+    padding-top: 40px;
+    color: grey;
+    padding-bottom: 50px;
+}
+
+.button{
+    font-size: 25px;
+    color: #030D1AFF;
+    background-color: white;
+    border: 2px solid white;
+    display: inline-block;
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    cursor: pointer;
+}
+
+.page2{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: white;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 400px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 17px;
+}
+
+.left-content{
+    font-size: 30px;
+}
+
+.page3{
+    background-color: #061325FF;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 800px;
+    padding-left: 260px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border-bottom: 1px solid rgb(88, 88, 88);
+}
+
+.page3-title{
+    font-size: 30px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border-bottom: 1px solid grey;
+    margin-top: 50px;
+    width: 90%;
+}
+
+.ug{
+    width: 90%;
+    border-bottom: 1px solid grey;
+    padding-bottom: 50px;
+}
+
+.hs button{
+    font-size: 15px;
+    padding: 10px;
+    background-color: #061325FF;
+    color: white;
+    border: 1px solid gray;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;
+}
+.page4-title{
+    margin-left: 260px;
+    width: 80%;
+    display:block;
+    color: white;
+    font-size: 35px;
+    right: 90px;
+}
+.box1{
+    color: white;
+    width: 75%;
+    margin-left: 260px;
+    display: flex;
+    justify-content: space-between;
+    height: 600px;
+}
+.section1{
+    width: 45%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+}
+.section1 button{
+    margin: 20px;
+    font-size: 15px;
+    color: white;
+    background-color: #030D1AFF;
+    border: 1px solid gray;
+    padding: 10px;
+}
+.section2{
+    width: 45%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+}
+.section2 button{
+    margin: 20px;
+    font-size: 15px;
+    color: white;
+    background-color: #030D1AFF;
+    border: 1px solid gray;
+    padding: 10px;
+    border-bottom: 1px solid gray;
+}
+.page4{
+    border-bottom: 1px solid gray;
+}
+.page5-title{
+    color: white;
+    margin-left: 250px;
+    font-size: 25px;
+    margin-top: -30px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid gray;
+    width: 80%;
+}
+.page5{
+    background-color: #061224FF ;
+    color: white;
+    border-bottom: 1px solid gray;
+}
+.page5title{
+    width: 80%;
+    padding-top: 50px;
+    margin-left: 260px;
+    font-size: 20px;
+    border-bottom: 1px solid gray;
+    padding-bottom: 10px;
+}
+.page5exp{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 50px;
+    margin-left: 270px;
+    border-bottom: 1px solid rgb(129, 125, 125);
+    width: 80%;
+    padding-bottom: 50px;
+}
+.page5exp2{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 50px;
+    margin-left: 270px;
+    width: 80%;
+    padding-bottom: 50px;
+}
+.Development-project{
+    color: white;
+    font-size: 20px;
+    margin-left: 140px;
+    padding-top: 50px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid gray;
+    width: 80%;
+}
+.dev-heading{
+    color: white;
+    font-size: 10px;
+    margin-left: 140px;
+    padding-bottom: 30px;
+    width: 80%;
+}
+.window{
+    margin-left: 140px;
+}
+.page6-2-video{
+    margin-left: 30px;
+    height: 500px;
+    width:85%;
+    margin-left: 140px;
+    display: inline-block;
+    margin-bottom: 0px;
+    border-bottom: 1px solid gray;
+}
+.dev-heading{
+    font-size: 20px;
+}
+.poster1{
+    display: inline-block;
+    padding: 10px 10px 10px 10px;
+    margin-right: 10px;
+}
+.poster1 img{
+    border: .5px solid white;
+    height: 400px;
+    width: 330px;
+}
+.video{
+    margin-top: 10px;
+    margin-left: 140px;
+    width: 85%;
+    margin-bottom: 40px;
+}
+.video video{
+    width: 100%;
+    height: 100%;
+}
+.pagevideoheadline{
+    margin-left: 140px;
+}
+.final-page{
+    background-color: #061123FF;
+    padding-bottom: 200px;
+}
+.contact{
+    margin-top: 50px;
+    color: white;
+    background-color: #061123FF;
+    margin-left: 400px;
+    width: 60%;
+}
+.contact h1{
+    padding-top: 150px;
+    font-size: 50px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid gray;
+}
+.bottom{
+    width: 100%;
+    height: 120px;
+    background-color: #030D1AFF;
+    color: gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+@media screen and (max-width:375px){
+    .name{
+        font-size: 0px;
+        width: 0;
+        height: 0;
+    }
+    .options{
+        width: 100%;
+        padding-right: 20px;
+    }
+    .page2{
+        position: relative;
+        top: 290px;
+    }
+    .page3{
+        position: relative;
+        top: 400px;
+        background-color: none;
+    }
+    .page4{
+        position: relative;
+        top: 1400px;
+    }
+    .page4 img{
+        height: 0;
+        width: 0;
+    }
+    .page5{
+        position: relative;
+        top: 2000px;
+        background-color: #030D1AFF;
+    }
+    .page6{
+        position: relative;
+        top: 2000px;
+    }
+    .page6-2{
+        position: relative;
+        top: 2000px;
+    }
+    .pagevideoheadline{
+        position: relative;
+        top: 2900px;
+    }
+    .video{
+        position: relative;
+        top: 2900px;
+    }
+
+    .final-page{
+        position: relative;
+        top: 2400px;
+        background-color: #030D1AFF;
+    }
+    .final-page{
+        background-color: #030D1AFF;
+        position: relative;
+        top: 3200px;
+    }
+    .bottom{
+        position: relative;
+        top: 3200px;
+        align-items: center;
+        left: 160px;
+    }
+}
+
+@media screen and (max-width :1366px) {
+        .page3-title{
+            margin-left: -130px;
+        }
+        .ug{
+            margin-left: -130px;
+        }
+        .hs{
+            margin-left: -130px;
+        }
+
+        .page4-title{
+            margin-left: 120px;
+        }
+        .box1{
+            margin-left: 120px;
+            height: 800px;
+        }
+        .section1 .images img{
+            padding: 10px;
+            padding-left: 15px;
+        }
+        .section2 .services-image img{
+            margin-left:50px;
+        }
+        .page5title{
+            margin-left: 130px;
+        }
+        .page5exp{
+            margin-left: 130px;
+        }
+        .page5exp2{
+            margin-left: 130px;
+        }
+        .page6-2-video img{
+            width: 330px;
+        }
+        .page6-2{
+            height: 1050px;
+        }
+        .page6-2-video{
+            height: 860px;
+        }
+        .contact{
+            margin-left: 300px;
+        }
+}
