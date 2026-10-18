@@ -172,6 +172,15 @@ head1{
 .page4{
     border-bottom: 1px solid gray;
 }
+.section1 .images img{
+    padding-left: 50px;
+}
+.section2 .services-image img{
+    padding-left: 80px;
+}
+.softwares-image img{
+    padding-left:50px;
+}
 .page5-title{
     color: white;
     margin-left: 250px;
